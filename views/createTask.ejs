@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="createTask  content">
+        <form action="">
+            <label for="title">Task title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="description">Task description:</label>
+            <input type="text" id="description">
+            <label for="dueDate">Due date:</label>
+            <input type="date" id="dueDate">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="pending">Pending</option>
+                <option value="inProgress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+            <label for="tag">Tag</label>
+            <select id="tag" name="tag">
+                <option value="Health Care">Pending</option>
+                <option value="hobby">In Progress</option>
+                <option value="Work">Completed</option>
+                <option value="Shopping">Completed</option>
+            </select>
+            <button type="submit">Create Task</button>
+        </form>
+    </div>
+</body>
+</html>
