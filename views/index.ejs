@@ -1,37 +1,24 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Written Not Done</title>
-
-</head>
+<%- include ('./partials/head.ejs') %>
 
 <body>
-    <nav class="nwnd">
-        <div class="nwnd">
-            <a href="/">
-                <h1>NWND</h1>
-            </a>
-            <p class="nwnd"> Not Written Not Done </p>
-        </div>
-        <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/">Tasks</a></li>
-            <li><a href="/blogs">Blogs</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-            <li><a href="/tasks/newTask">Add Tasks</a></li>
+ <%- include ('./partials/navbar.ejs')%>
 
-        </ul>
-    </nav>
 
     <div class="tasksContent">
+
         <h2>All Tasks</h2>
+        <% if (tasks.length >0) { %>
+            <% tasks.forEach(task => { %> 
         <div class="tasks">
             <div class="task">
-                <h3>Task 1</h3> 
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod auctor turpis, at consectetur arcu semper sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel cursus erat.</p>
-                <p>Status: In Progress</p>
+                
+                <h3><%= task.title %></h3> 
+                <p><%= task.description %></p>
+                <p><%= task.state%></p>
+        <%    }); %>
+                <% } %>
                 <button>Delete</button>
                 <button>Edit</button>
                 <button>Complete</button>
@@ -41,6 +28,6 @@
         </div>
     </div>    
     
-
-
+</body>
+<%- include('./partials/footer.ejs')  %>
 </html>
