@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+</head>
+
+<body>
+    <%- include ('./partials/navbar.ejs')%>
+        <div class="tasksContent">
+
+            <h2>All Tasks</h2>
+            <div class="tasksList">
+                <div class="tasks">
+                    <div class="task">
+                        <h3>
+                            <%= task.title %>
+                        </h3>
+                        <p>
+                            <%= task.description %>
+                        </p>
+                        <p>
+                            <%= task.status%>
+                        </p>
+                        <p>
+                            <%= task.tag%>
+                        </p>
+                        <p>
+                            <%= task.dueDate%>
+                        </p>
+                        <p>
+                            <%= task.priority%>
+                        </p>
+
+                        <a class="delete" data-doc="<%= task._id %>">Delete</a>
+                        <button>Edit</button>
+                        <button>Complete</button>
+                        <button>Details</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                const trashcan = document.querySelector('a.delete');
+                trashcan.addEventListener('click', (e) => {
+                    const endpoint = `/tasks/${trashcan.dataset.doc}`;
+                    fetch(endpoint, {
+                        method: 'DELETE'
+                    })
+                        .then((response) => response.json())
+                        .then((data) => window.location.href = data.redirect)
+                        .catch(err => console.error(err));
+                    })
+
+            </script>
+</body>
+<%- include('./partials/footer.ejs') %>
+
+</html>

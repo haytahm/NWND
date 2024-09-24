@@ -1,19 +1,47 @@
 <html lang="en">
+
 <head>
     <%- include ('./partials/head.ejs') %>
 </head>
+
 <body>
     <%- include ('./partials/navbar.ejs')%>
 
-    
-    
+
+        <div class="tasksContent">
+
+            <h2>All Tasks</h2>
+            <% if (tasks.length>0) { %>
+                <% tasks.forEach(task=> { %>
+
+                    <div class="tasks">
+                        <div class="task">
+                            <a class="taskLink" href="/tasks/<%= task._id %>">
+                                <h3>
+                                    <%= task.title %>
+                                </h3>
+                                <%= task.status%>
+                                    </p>
+                                    <p>
+                                        <%= task.tag%>
+                                    </p>
+                                    <p>
+                                        <%= task.dueDate%>
+                                    </p>
+                                    <p>
+                                        <%= task.priority%>
+                                    </p>
+
+                            </a>
+                            <% }); %>
+                                <% } %>
+                                 
+                        </div>
+
+                    </div>
+        </div>
+
 </body>
-<%- include('./partials/footer.ejs')  %>
+<%- include('./partials/footer.ejs') %>
+
 </html>
-
-
-
-
-
-
-
